@@ -1,0 +1,163 @@
+scope,step,step_label,n_rows,n_persons,rows_excluded,exclusion_reason,status
+all,S0,All respondent-month rows,186660,24592,0,,computed
+all,S1,Valid userid and YYYYMM date,186660,24592,0,missing/unparseable userid or date,computed
+all,S2,First occurrence of userid-month key,186660,24592,0,duplicate userid-month (cross-file overlap or within-file duplicate),computed
+all,S3,Employed: Q10_1 full-time or Q10_2 part-time ticked,125908,18069,60752,not working / not reporting work in Q10,computed
+all,S4,Works for someone else (Q12new = 1),108588,15698,17320,self-employed or Q12new missing; Q13new job-loss item not comparable,computed
+all,S5,Q13new valid 0-100,108425,15678,163,Q13new missing or invalid,computed
+all,S6,Q22new valid 0-100,108406,15677,19,Q22new missing or invalid,computed
+all,S7,Q30new valid 0-100,108388,15673,18,Q30new missing or invalid,computed
+all,S8,Analysis rows of persons with >= 2 analysis months,105648,12933,2740,singleton person in analysis sample,computed
+year=2013,S0,All respondent-month rows,10177,2942,0,,computed
+year=2013,S1,Valid userid and YYYYMM date,10177,2942,0,missing/unparseable userid or date,computed
+year=2013,S2,First occurrence of userid-month key,10177,2942,0,duplicate userid-month (cross-file overlap or within-file duplicate),computed
+year=2013,S3,Employed: Q10_1 full-time or Q10_2 part-time ticked,6857,2091,3320,not working / not reporting work in Q10,computed
+year=2013,S4,Works for someone else (Q12new = 1),4484,1558,2373,self-employed or Q12new missing; Q13new job-loss item not comparable,computed
+year=2013,S5,Q13new valid 0-100,4430,1549,54,Q13new missing or invalid,computed
+year=2013,S6,Q22new valid 0-100,4428,1549,2,Q22new missing or invalid,computed
+year=2013,S7,Q30new valid 0-100,4428,1549,0,Q30new missing or invalid,computed
+year=2013,S8,Analysis rows of persons with >= 2 analysis months,3988,1109,440,singleton person in analysis sample,computed
+year=2014,S0,All respondent-month rows,15812,3174,0,,computed
+year=2014,S1,Valid userid and YYYYMM date,15812,3174,0,missing/unparseable userid or date,computed
+year=2014,S2,First occurrence of userid-month key,15812,3174,0,duplicate userid-month (cross-file overlap or within-file duplicate),computed
+year=2014,S3,Employed: Q10_1 full-time or Q10_2 part-time ticked,10493,2286,5319,not working / not reporting work in Q10,computed
+year=2014,S4,Works for someone else (Q12new = 1),8934,1977,1559,self-employed or Q12new missing; Q13new job-loss item not comparable,computed
+year=2014,S5,Q13new valid 0-100,8888,1972,46,Q13new missing or invalid,computed
+year=2014,S6,Q22new valid 0-100,8887,1972,1,Q22new missing or invalid,computed
+year=2014,S7,Q30new valid 0-100,8883,1971,4,Q30new missing or invalid,computed
+year=2014,S8,Analysis rows of persons with >= 2 analysis months,8424,1512,459,singleton person in analysis sample,computed
+year=2015,S0,All respondent-month rows,15175,3123,0,,computed
+year=2015,S1,Valid userid and YYYYMM date,15175,3123,0,missing/unparseable userid or date,computed
+year=2015,S2,First occurrence of userid-month key,15175,3123,0,duplicate userid-month (cross-file overlap or within-file duplicate),computed
+year=2015,S3,Employed: Q10_1 full-time or Q10_2 part-time ticked,10194,2226,4981,not working / not reporting work in Q10,computed
+year=2015,S4,Works for someone else (Q12new = 1),8722,1942,1472,self-employed or Q12new missing; Q13new job-loss item not comparable,computed
+year=2015,S5,Q13new valid 0-100,8696,1936,26,Q13new missing or invalid,computed
+year=2015,S6,Q22new valid 0-100,8696,1936,0,Q22new missing or invalid,computed
+year=2015,S7,Q30new valid 0-100,8695,1936,1,Q30new missing or invalid,computed
+year=2015,S8,Analysis rows of persons with >= 2 analysis months,8264,1505,431,singleton person in analysis sample,computed
+year=2016,S0,All respondent-month rows,15280,3140,0,,computed
+year=2016,S1,Valid userid and YYYYMM date,15280,3140,0,missing/unparseable userid or date,computed
+year=2016,S2,First occurrence of userid-month key,15280,3140,0,duplicate userid-month (cross-file overlap or within-file duplicate),computed
+year=2016,S3,Employed: Q10_1 full-time or Q10_2 part-time ticked,10521,2292,4759,not working / not reporting work in Q10,computed
+year=2016,S4,Works for someone else (Q12new = 1),9128,2002,1393,self-employed or Q12new missing; Q13new job-loss item not comparable,computed
+year=2016,S5,Q13new valid 0-100,9114,1999,14,Q13new missing or invalid,computed
+year=2016,S6,Q22new valid 0-100,9114,1999,0,Q22new missing or invalid,computed
+year=2016,S7,Q30new valid 0-100,9112,1998,2,Q30new missing or invalid,computed
+year=2016,S8,Analysis rows of persons with >= 2 analysis months,8672,1558,440,singleton person in analysis sample,computed
+year=2017,S0,All respondent-month rows,16048,3346,0,,computed
+year=2017,S1,Valid userid and YYYYMM date,16048,3346,0,missing/unparseable userid or date,computed
+year=2017,S2,First occurrence of userid-month key,16048,3346,0,duplicate userid-month (cross-file overlap or within-file duplicate),computed
+year=2017,S3,Employed: Q10_1 full-time or Q10_2 part-time ticked,10869,2387,5179,not working / not reporting work in Q10,computed
+year=2017,S4,Works for someone else (Q12new = 1),9246,2068,1623,self-employed or Q12new missing; Q13new job-loss item not comparable,computed
+year=2017,S5,Q13new valid 0-100,9241,2067,5,Q13new missing or invalid,computed
+year=2017,S6,Q22new valid 0-100,9236,2067,5,Q22new missing or invalid,computed
+year=2017,S7,Q30new valid 0-100,9234,2067,2,Q30new missing or invalid,computed
+year=2017,S8,Analysis rows of persons with >= 2 analysis months,8752,1585,482,singleton person in analysis sample,computed
+year=2018,S0,All respondent-month rows,15786,3295,0,,computed
+year=2018,S1,Valid userid and YYYYMM date,15786,3295,0,missing/unparseable userid or date,computed
+year=2018,S2,First occurrence of userid-month key,15786,3295,0,duplicate userid-month (cross-file overlap or within-file duplicate),computed
+year=2018,S3,Employed: Q10_1 full-time or Q10_2 part-time ticked,10482,2330,5304,not working / not reporting work in Q10,computed
+year=2018,S4,Works for someone else (Q12new = 1),9074,2048,1408,self-employed or Q12new missing; Q13new job-loss item not comparable,computed
+year=2018,S5,Q13new valid 0-100,9067,2047,7,Q13new missing or invalid,computed
+year=2018,S6,Q22new valid 0-100,9063,2046,4,Q22new missing or invalid,computed
+year=2018,S7,Q30new valid 0-100,9062,2046,1,Q30new missing or invalid,computed
+year=2018,S8,Analysis rows of persons with >= 2 analysis months,8591,1575,471,singleton person in analysis sample,computed
+year=2019,S0,All respondent-month rows,15847,3249,0,,computed
+year=2019,S1,Valid userid and YYYYMM date,15847,3249,0,missing/unparseable userid or date,computed
+year=2019,S2,First occurrence of userid-month key,15847,3249,0,duplicate userid-month (cross-file overlap or within-file duplicate),computed
+year=2019,S3,Employed: Q10_1 full-time or Q10_2 part-time ticked,10566,2309,5281,not working / not reporting work in Q10,computed
+year=2019,S4,Works for someone else (Q12new = 1),9237,2049,1329,self-employed or Q12new missing; Q13new job-loss item not comparable,computed
+year=2019,S5,Q13new valid 0-100,9235,2049,2,Q13new missing or invalid,computed
+year=2019,S6,Q22new valid 0-100,9232,2049,3,Q22new missing or invalid,computed
+year=2019,S7,Q30new valid 0-100,9231,2049,1,Q30new missing or invalid,computed
+year=2019,S8,Analysis rows of persons with >= 2 analysis months,8761,1579,470,singleton person in analysis sample,computed
+year=2020,S0,All respondent-month rows,15044,3152,0,,computed
+year=2020,S1,Valid userid and YYYYMM date,15044,3152,0,missing/unparseable userid or date,computed
+year=2020,S2,First occurrence of userid-month key,15044,3152,0,duplicate userid-month (cross-file overlap or within-file duplicate),computed
+year=2020,S3,Employed: Q10_1 full-time or Q10_2 part-time ticked,9510,2165,5534,not working / not reporting work in Q10,computed
+year=2020,S4,Works for someone else (Q12new = 1),8417,1909,1093,self-employed or Q12new missing; Q13new job-loss item not comparable,computed
+year=2020,S5,Q13new valid 0-100,8414,1909,3,Q13new missing or invalid,computed
+year=2020,S6,Q22new valid 0-100,8413,1909,1,Q22new missing or invalid,computed
+year=2020,S7,Q30new valid 0-100,8411,1909,2,Q30new missing or invalid,computed
+year=2020,S8,Analysis rows of persons with >= 2 analysis months,7977,1475,434,singleton person in analysis sample,computed
+year=2021,S0,All respondent-month rows,15109,2990,0,,computed
+year=2021,S1,Valid userid and YYYYMM date,15109,2990,0,missing/unparseable userid or date,computed
+year=2021,S2,First occurrence of userid-month key,15109,2990,0,duplicate userid-month (cross-file overlap or within-file duplicate),computed
+year=2021,S3,Employed: Q10_1 full-time or Q10_2 part-time ticked,10014,2115,5095,not working / not reporting work in Q10,computed
+year=2021,S4,Works for someone else (Q12new = 1),8874,1874,1140,self-employed or Q12new missing; Q13new job-loss item not comparable,computed
+year=2021,S5,Q13new valid 0-100,8874,1874,0,Q13new missing or invalid,computed
+year=2021,S6,Q22new valid 0-100,8873,1874,1,Q22new missing or invalid,computed
+year=2021,S7,Q30new valid 0-100,8872,1873,1,Q30new missing or invalid,computed
+year=2021,S8,Analysis rows of persons with >= 2 analysis months,8495,1496,377,singleton person in analysis sample,computed
+year=2022,S0,All respondent-month rows,14818,2791,0,,computed
+year=2022,S1,Valid userid and YYYYMM date,14818,2791,0,missing/unparseable userid or date,computed
+year=2022,S2,First occurrence of userid-month key,14818,2791,0,duplicate userid-month (cross-file overlap or within-file duplicate),computed
+year=2022,S3,Employed: Q10_1 full-time or Q10_2 part-time ticked,10279,2036,4539,not working / not reporting work in Q10,computed
+year=2022,S4,Works for someone else (Q12new = 1),9245,1846,1034,self-employed or Q12new missing; Q13new job-loss item not comparable,computed
+year=2022,S5,Q13new valid 0-100,9243,1845,2,Q13new missing or invalid,computed
+year=2022,S6,Q22new valid 0-100,9241,1845,2,Q22new missing or invalid,computed
+year=2022,S7,Q30new valid 0-100,9240,1845,1,Q30new missing or invalid,computed
+year=2022,S8,Analysis rows of persons with >= 2 analysis months,8894,1499,346,singleton person in analysis sample,computed
+year=2023,S0,All respondent-month rows,13983,2719,0,,computed
+year=2023,S1,Valid userid and YYYYMM date,13983,2719,0,missing/unparseable userid or date,computed
+year=2023,S2,First occurrence of userid-month key,13983,2719,0,duplicate userid-month (cross-file overlap or within-file duplicate),computed
+year=2023,S3,Employed: Q10_1 full-time or Q10_2 part-time ticked,9877,2011,4106,not working / not reporting work in Q10,computed
+year=2023,S4,Works for someone else (Q12new = 1),8836,1830,1041,self-employed or Q12new missing; Q13new job-loss item not comparable,computed
+year=2023,S5,Q13new valid 0-100,8835,1830,1,Q13new missing or invalid,computed
+year=2023,S6,Q22new valid 0-100,8835,1830,0,Q22new missing or invalid,computed
+year=2023,S7,Q30new valid 0-100,8833,1829,2,Q30new missing or invalid,computed
+year=2023,S8,Analysis rows of persons with >= 2 analysis months,8479,1475,354,singleton person in analysis sample,computed
+year=2024,S0,All respondent-month rows,13022,2550,0,,computed
+year=2024,S1,Valid userid and YYYYMM date,13022,2550,0,missing/unparseable userid or date,computed
+year=2024,S2,First occurrence of userid-month key,13022,2550,0,duplicate userid-month (cross-file overlap or within-file duplicate),computed
+year=2024,S3,Employed: Q10_1 full-time or Q10_2 part-time ticked,9031,1883,3991,not working / not reporting work in Q10,computed
+year=2024,S4,Works for someone else (Q12new = 1),8021,1693,1010,self-employed or Q12new missing; Q13new job-loss item not comparable,computed
+year=2024,S5,Q13new valid 0-100,8020,1693,1,Q13new missing or invalid,computed
+year=2024,S6,Q22new valid 0-100,8020,1693,0,Q22new missing or invalid,computed
+year=2024,S7,Q30new valid 0-100,8020,1693,0,Q30new missing or invalid,computed
+year=2024,S8,Analysis rows of persons with >= 2 analysis months,7708,1381,312,singleton person in analysis sample,computed
+year=2025,S0,All respondent-month rows,10559,2159,0,,computed
+year=2025,S1,Valid userid and YYYYMM date,10559,2159,0,missing/unparseable userid or date,computed
+year=2025,S2,First occurrence of userid-month key,10559,2159,0,duplicate userid-month (cross-file overlap or within-file duplicate),computed
+year=2025,S3,Employed: Q10_1 full-time or Q10_2 part-time ticked,7215,1567,3344,not working / not reporting work in Q10,computed
+year=2025,S4,Works for someone else (Q12new = 1),6370,1388,845,self-employed or Q12new missing; Q13new job-loss item not comparable,computed
+year=2025,S5,Q13new valid 0-100,6368,1387,2,Q13new missing or invalid,computed
+year=2025,S6,Q22new valid 0-100,6368,1387,0,Q22new missing or invalid,computed
+year=2025,S7,Q30new valid 0-100,6367,1386,1,Q30new missing or invalid,computed
+year=2025,S8,Analysis rows of persons with >= 2 analysis months,6086,1105,281,singleton person in analysis sample,computed
+release=2013_2016,S0,All respondent-month rows,56444,8735,0,,computed
+release=2013_2016,S1,Valid userid and YYYYMM date,56444,8735,0,missing/unparseable userid or date,computed
+release=2013_2016,S2,First occurrence of userid-month key,56444,8735,0,duplicate userid-month (cross-file overlap or within-file duplicate),computed
+release=2013_2016,S3,Employed: Q10_1 full-time or Q10_2 part-time ticked,38065,6389,18379,not working / not reporting work in Q10,computed
+release=2013_2016,S4,Works for someone else (Q12new = 1),31268,5321,6797,self-employed or Q12new missing; Q13new job-loss item not comparable,computed
+release=2013_2016,S5,Q13new valid 0-100,31128,5303,140,Q13new missing or invalid,computed
+release=2013_2016,S6,Q22new valid 0-100,31125,5303,3,Q22new missing or invalid,computed
+release=2013_2016,S7,Q30new valid 0-100,31118,5301,7,Q30new missing or invalid,computed
+release=2013_2016,S8,Analysis rows of persons with >= 2 analysis months,30060,4243,1058,singleton person in analysis sample,computed
+release=2017_2019,S0,All respondent-month rows,47681,7379,0,,computed
+release=2017_2019,S1,Valid userid and YYYYMM date,47681,7379,0,missing/unparseable userid or date,computed
+release=2017_2019,S2,First occurrence of userid-month key,47681,7379,0,duplicate userid-month (cross-file overlap or within-file duplicate),computed
+release=2017_2019,S3,Employed: Q10_1 full-time or Q10_2 part-time ticked,31917,5313,15764,not working / not reporting work in Q10,computed
+release=2017_2019,S4,Works for someone else (Q12new = 1),27557,4661,4360,self-employed or Q12new missing; Q13new job-loss item not comparable,computed
+release=2017_2019,S5,Q13new valid 0-100,27543,4660,14,Q13new missing or invalid,computed
+release=2017_2019,S6,Q22new valid 0-100,27531,4659,12,Q22new missing or invalid,computed
+release=2017_2019,S7,Q30new valid 0-100,27527,4659,4,Q30new missing or invalid,computed
+release=2017_2019,S8,Analysis rows of persons with >= 2 analysis months,26585,3717,942,singleton person in analysis sample,computed
+release=2020_2024,S0,All respondent-month rows,71976,9751,0,,computed
+release=2020_2024,S1,Valid userid and YYYYMM date,71976,9751,0,missing/unparseable userid or date,computed
+release=2020_2024,S2,First occurrence of userid-month key,71976,9751,0,duplicate userid-month (cross-file overlap or within-file duplicate),computed
+release=2020_2024,S3,Employed: Q10_1 full-time or Q10_2 part-time ticked,48711,7116,23265,not working / not reporting work in Q10,computed
+release=2020_2024,S4,Works for someone else (Q12new = 1),43393,6366,5318,self-employed or Q12new missing; Q13new job-loss item not comparable,computed
+release=2020_2024,S5,Q13new valid 0-100,43386,6365,7,Q13new missing or invalid,computed
+release=2020_2024,S6,Q22new valid 0-100,43382,6365,4,Q22new missing or invalid,computed
+release=2020_2024,S7,Q30new valid 0-100,43376,6364,6,Q30new missing or invalid,computed
+release=2020_2024,S8,Analysis rows of persons with >= 2 analysis months,42328,5316,1048,singleton person in analysis sample,computed
+release=latest,S0,All respondent-month rows,10559,2159,0,,computed
+release=latest,S1,Valid userid and YYYYMM date,10559,2159,0,missing/unparseable userid or date,computed
+release=latest,S2,First occurrence of userid-month key,10559,2159,0,duplicate userid-month (cross-file overlap or within-file duplicate),computed
+release=latest,S3,Employed: Q10_1 full-time or Q10_2 part-time ticked,7215,1567,3344,not working / not reporting work in Q10,computed
+release=latest,S4,Works for someone else (Q12new = 1),6370,1388,845,self-employed or Q12new missing; Q13new job-loss item not comparable,computed
+release=latest,S5,Q13new valid 0-100,6368,1387,2,Q13new missing or invalid,computed
+release=latest,S6,Q22new valid 0-100,6368,1387,0,Q22new missing or invalid,computed
+release=latest,S7,Q30new valid 0-100,6367,1386,1,Q30new missing or invalid,computed
+release=latest,S8,Analysis rows of persons with >= 2 analysis months,6086,1105,281,singleton person in analysis sample,computed

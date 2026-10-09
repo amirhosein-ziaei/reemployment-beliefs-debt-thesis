@@ -1,0 +1,14 @@
+{
+  "all_required_vars_in_every_file": true,
+  "keys_unique_after_dedup": true,
+  "q13_answered_by_employees": 0.9984989133237558,
+  "q22_answered_by_employees": 0.9986462592551664,
+  "q30_answered_by_employees": 0.9985817954101742,
+  "q13_answered_by_not_working": 0.0,
+  "q22_answered_by_not_working": 0.0,
+  "n_analysis_rows": 108388,
+  "n_analysis_persons": 15673,
+  "routing_consistent": true,
+  "validated_for_preliminary_model": true,
+  "manual_history_review_done": false
+}
