@@ -1,0 +1,8 @@
+# Provider microdata and derived person-level files are never committed
+# (FRBNY licence/attribution terms; size). Only code and aggregate outputs are.
+data/
+*.xlsx
+*.xls
+*.csv.gz
+__pycache__/
+*.pyc
