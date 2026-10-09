@@ -1,0 +1,32 @@
+measure,n_months,n_persons,share
+months in survey (all rows),1,3996,0.1624918672739102
+months in survey (all rows),2,1773,0.07209661678594664
+months in survey (all rows),3,1357,0.055180546519193234
+months in survey (all rows),4,1128,0.04586857514638907
+months in survey (all rows),5,960,0.03903708523096942
+months in survey (all rows),6,788,0.03204294079375407
+months in survey (all rows),7,773,0.03143298633702017
+months in survey (all rows),8,755,0.03070104098893949
+months in survey (all rows),9,974,0.039606376057254394
+months in survey (all rows),10,1422,0.057823682498373455
+months in survey (all rows),11,2315,0.0941363044892648
+months in survey (all rows),12,7577,0.30810832791151593
+months in survey (all rows),13+,774,0.0314736499674691
+months in analysis sample,1,2740,0.17482294391628916
+months in analysis sample,2,1350,0.08613539207554392
+months in analysis sample,3,988,0.06303834620047215
+months in analysis sample,4,882,0.0562751228226887
+months in analysis sample,5,713,0.0454922478147132
+months in analysis sample,6,632,0.04032412429018056
+months in analysis sample,7,639,0.04077075224909079
+months in analysis sample,8,604,0.038537612454539655
+months in analysis sample,9,785,0.05008613539207554
+months in analysis sample,10,1095,0.06986537357238563
+months in analysis sample,11,1558,0.0994066228545907
+months in analysis sample,12,3345,0.21342436036495885
+months in analysis sample,13+,342,0.021820965992471127
+employee -> not employee next month (share of consecutive pairs),,87512,0.03465810403144712
+share of employee rows that are the person's last survey month,,108588,0.13254687442442994
+tenure quantile 0.1 (employee rows),,108588,1.0
+tenure quantile 0.5 (employee rows),,108588,5.0
+tenure quantile 0.9 (employee rows),,108588,11.0

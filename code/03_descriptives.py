@@ -7,7 +7,8 @@ Writes outputs/generated/descriptives_tables.md and CSVs in outputs/generated/.
 The model is an associational two-way fixed-effects regression of Q30new on
 finding difficulty (100 - Q22new) and Q13new; it is NOT causal and does not
 predict actual delinquency. It runs only if validation_flags.json says
-validated_for_preliminary_model = true (or with --force for a code smoke test).
+validated_for_preliminary_model = true AND manual_history_review_done = true
+(or with --force for a code smoke test).
 
 Usage: python code/03_descriptives.py [--force]
 """
@@ -84,7 +85,7 @@ def first_diff(a: pd.DataFrame) -> pd.DataFrame:
     a["d_fd"], a["d_q30"], a["d_q13"] = g["finding_difficulty"].diff(), g["q30new"].diff(), g["q13new"].diff()
     a = a[gap == 1]
     a["d_fd_cat"] = pd.cut(a["d_fd"], [-101, -10.5, 10.5, 101],
-                           labels=["finding got easier (>10pp)", "stable (|d|<=10)", "finding got harder (>10pp)"])
+                           labels=["finding got easier (>10pp)", "stable (-10..10pp)", "finding got harder (>10pp)"])
     return a.groupby("d_fd_cat", observed=False).agg(
         n_pairs=("userid", "size"), mean_d_q30=("d_q30", "mean"),
         share_q30_up=("d_q30", lambda s: (s > 0).mean()),
@@ -179,17 +180,18 @@ def main() -> int:
         t.to_csv(gen / f"desc_{k}.csv", index=False)
         parts += [f"\n## {k}\n", md_table(t)]
 
-    if flags.get("validated_for_preliminary_model") or args.force:
+    gate = bool(flags.get("validated_for_preliminary_model") and flags.get("manual_history_review_done"))
+    if gate or args.force:
         m = models(a)
         m.to_csv(gen / "preliminary_model.csv", index=False)
-        label = "SMOKE TEST (--force; routing not validated)" if not flags.get(
-            "validated_for_preliminary_model") else "PRELIMINARY ASSOCIATION — NOT CAUSAL"
+        label = "SMOKE TEST (--force; gate not passed)" if not gate else "PRELIMINARY ASSOCIATION — NOT CAUSAL"
         parts += [f"\n## preliminary_model — {label}\n",
                   "Outcome Q30new (pp). fd10 = finding difficulty per 10pp; loss10 = Q13new per 10pp. "
                   "Unweighted; SEs clustered by person.\n", md_table(m, "{:.3f}")]
     else:
         parts += ["\n## preliminary_model\n",
-                  "Not run: validation_flags.json does not mark routing/sample construction as validated.\n"]
+                  "Not run: validation_flags.json requires both validated_for_preliminary_model and "
+                  "manual_history_review_done (set by hand after tracing person histories).\n"]
     (gen / "descriptives_tables.md").write_text("\n".join(parts) + "\n")
     print("\n".join(parts))
     return 0

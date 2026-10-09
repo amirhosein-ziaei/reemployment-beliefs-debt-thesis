@@ -23,54 +23,55 @@ SHA-256 and the `Last-Modified` header, and goes to `outputs/generated/download_
 The "latest" file is overwritten in place by the provider, so the SHA-256 plus the retrieval
 date identify the vintage actually used.
 
-## Retrieval status in this session
+## Retrieval status
 
 | Item | Status |
 | - | - |
-| Microdata workbooks (4) | **NOT RETRIEVED.** `www.newyorkfed.org` denied by the session's egress policy (HTTP 403 at the proxy) |
-| Questionnaire PDF, Data Bank page, FAQ | **NOT RETRIEVED** (same host) |
-| Date of attempts | 2026-10-09 (UTC), repeated ~09:53–10:28; final scripted attempt logged in `outputs/generated/download_manifest.csv` |
+| Microdata workbooks (4) | **RETRIEVED** 2026-10-09 ~10:41 UTC, HTTP 200 for each file. SHA-256 per file in `outputs/generated/download_manifest.csv`. The server sent no `Last-Modified` header for the workbooks, so hash plus retrieval date identify the vintage |
+| Core questionnaire PDF | **RETRIEVED** (HTTP 200; `Last-Modified` 2024-02-09; © 2013-2024) |
+| Data Bank page, FAQ | **RETRIEVED** (HTTP 200). All four workbook file names above are linked from the Data Bank page as retrieved |
+| Earlier attempts | 2026-10-09 ~09:53–10:28 UTC were denied by the session's egress policy (proxy HTTP 403); resolved after the environment's network access was changed |
 
-To retrieve, allow `www.newyorkfed.org` in the environment's network settings, start a session
-in which the change is active, then run `python code/01_download.py`.
+## Coverage (RAW-P1: computed from the retrieved files; `outputs/generated/file_schema.csv`)
 
-## Coverage: what is known and what is not
+| File | Rows | User IDs | Months | First | Last | Columns |
+| - | - | - | - | - | - | - |
+| 2013–2016 | 56,444 | 8,735 | 43 | 2013-06 | 2016-12 | 220 |
+| 2017–2019 | 47,681 | 7,379 | 36 | 2017-01 | 2019-12 | 220 |
+| 2020–2024 | 71,976 | 9,751 | 60 | 2020-01 | 2024-12 | 229 |
+| latest | 10,559 | 2,159 | 10 | 2025-01 | 2025-10 | 229 |
+| **Pooled** | **186,660** | **24,592** | **149** | 2013-06 | 2025-10 | |
 
-Coverage below is **reported by the October 2026 adjudication report** (it downloaded two of the
-four files) and was **not replicated here**:
-
-| File | Rows | User IDs | Months | First | Last |
-| - | - | - | - | - | - |
-| 2013–2016 | 56,444 | 8,735 | 43 | 2013-06 | 2016-12 |
-| latest (as downloaded for the adjudication) | 10,559 | 2,159 | 10 | 2025-01 | 2025-10 |
-| 2017–2019 | not downloaded | | | | |
-| 2020–2024 | not downloaded | | | | |
-
-* **Do not assume data through October 2026.** The SCE FAQ (per adjudication) states a
-  **nine-month release lag** for core microdata. Monthly releases of aggregate statistics run to
-  late 2026, but public microdata trail them. The usable end date is the maximum `date` in the
-  file actually retrieved, which `file_schema.csv` records (`last_month`).
-* Whether 2017–2019 and 2020–2024 begin and end exactly at calendar-year boundaries, and whether
-  "latest" overlaps "2020–2024", is **unknown** until download. The overlap check handles both
-  cases.
-* The 2013–2016 file starts in June 2013, not January 2013.
+* The 2013–2016 and latest counts **match the adjudication report exactly**.
+* The four files tile the calendar with **no gaps and no overlapping userid×month keys**
+  (`cross_file_overlap.csv` is empty). Some `userid`s appear in two adjacent files: a respondent
+  who straddles a year boundary keeps the same ID, so IDs are stable across releases.
+* The usable end month is **2025-10**. That is consistent with the FAQ as retrieved: "For the
+  SCE core survey and SCE Credit Access module, microdata are posted with a nine-month lag."
+* Each workbook has one sheet (`Data`) with a one-row attribution preamble above the header.
+* The 2020–2024 and latest files add 9 columns (`q1a`, `q1apart2` and seven `q9new2_*`
+  5-year inflation-density fields). None are used here. All variables the project uses are
+  present in all four files.
+* The core file has **no debt-holding indicator**: `Q30new` is the only debt item.
 
 ## Licence and redistribution
 
-* The workbooks carry the New York Fed's licence and attribution terms (ADJ). The pipeline stores
-  the workbook preamble text in `file_schema.csv` (`preamble`), so the exact terms are archived
-  with each retrieval. Keep the downloaded licence with the cached data.
+* Each workbook carries this attribution line (RAW-P1, verbatim): "Source: Survey of Consumer
+  Expectations, © 2013-26 Federal Reserve Bank of New York (FRBNY). The SCE data are available
+  without charge at www.newyorkfed.org and may be used subject to license terms posted there.
+  FRBNY disclaims any responsibility or legal liability for this analysis and interpretation of
+  Survey of Consumer Expectations data." That is the 2020–24 and latest preamble; the 2013–16 and
+  2017–19 files read "© 2013-20" and "© 2013-21". The full licence is in the questionnaire PDF. The pipeline stores each preamble in
+  `file_schema.csv`.
 * **Raw workbooks and person-level derived files are not committed.** `.gitignore` excludes
   `data/`, `*.xlsx` and `*.csv.gz`. Only code and aggregate tables are committed. Do not rehost the
   microdata.
-* Cite as: Federal Reserve Bank of New York, *Survey of Consumer Expectations*, © 2013–2026
-  Federal Reserve Bank of New York. Use the exact citation text in the workbook preamble, which
-  takes precedence.
+* Cite with the workbook attribution line above, which takes precedence over any shorter form.
 
-## What the core file does not contain (ADJ; not re-checked)
+## What the core file does not contain
 
-* No realised delinquency, default or credit-bureau link.
-* No liquid-wealth measure in the core module.
+* No realised delinquency, default or credit-bureau link, and no debt-holding filter (RAW-P1: column list).
+* No liquid-wealth measure in the core module (ADJ; not re-checked).
 * Supplementary SCE modules (Credit Access; Household Spending; Labor Market) have separate
   release lags (FAQ: up to 18 months). They should only be linked after checking common IDs,
   timing and sample loss. They are **not used in Phase 1**.

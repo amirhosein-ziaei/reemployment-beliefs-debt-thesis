@@ -83,7 +83,9 @@ def construct(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
     invalid = pd.DataFrame(inv)
 
     ticked = lambda c: (pd.to_numeric(out[c], errors="coerce") == 1) if c in out else False
-    out["q10_any"] = out[[c for c in EMP_STATUS_VARS if c in out]].notna().any(axis=1)
+    # Q10 boxes are coded 0/1 in the public files, so "answered" means any box == 1.
+    out["q10_any"] = out[[c for c in EMP_STATUS_VARS if c in out]].apply(
+        pd.to_numeric, errors="coerce").eq(1).any(axis=1)
     out["employed"] = ticked(EMPLOYED_CODES[0]) | ticked(EMPLOYED_CODES[1])
     out["sick_leave_only"] = ticked(SICK_LEAVE_CODE) & ~out["employed"]
     q12 = pd.to_numeric(out.get("q12new"), errors="coerce")
@@ -99,7 +101,7 @@ def construct(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
          ~out["q10_any"]],
         ["employed: works for someone else", "employed: self-employed",
          "employed: Q12new missing", "sick/other leave only", "temporarily laid off",
-         "not working, would like to work", "retired", "Q10 all missing"],
+         "not working, would like to work", "retired", "Q10 nothing ticked"],
         default="other not employed")
     out["emp_group"] = grp
     return out, invalid
@@ -170,6 +172,8 @@ def within_person(a: pd.DataFrame) -> pd.DataFrame:
         consec = (a["month"] - a.groupby("userid")["month"].shift(1)).apply(
             lambda x: getattr(x, "n", np.nan)) == 1
         dlt = (a[v] - lag)[consec]
+        moved = consec & (a[v] != lag)
+        focal = a[v].isin(HEAP_POINTS) & lag.isin(HEAP_POINTS)
         rows.append(dict(
             variable=v, n_rows=len(a), n_persons=a["userid"].nunique(),
             share_persons_any_change=(g.nunique() > 1).mean(),
@@ -179,6 +183,7 @@ def within_person(a: pd.DataFrame) -> pd.DataFrame:
             share_pairs_changed=(dlt != 0).mean(),
             mean_abs_change_consecutive=dlt.abs().mean(),
             share_pairs_abs_change_ge_10=(dlt.abs() >= 10).mean(),
+            share_changes_between_focal_0_50_100=(focal[moved]).mean(),
         ))
     ch = a.groupby("userid").agg(**{f"ch_{v}": (v, lambda s: s.nunique() > 1) for v in CORE})
     rows.append(dict(variable="q22new & q30new both vary", n_persons=len(ch),
@@ -234,6 +239,10 @@ def history_sample(d: pd.DataFrame, n: int = 50, seed: int = 20261009) -> pd.Dat
     for s in strata:
         ids = p.index[p["stratum"] == s].to_numpy()
         picks += list(rng.choice(ids, size=min(per, len(ids)), replace=False))
+    # Top up at random when there are more strata than n allows per stratum.
+    rest = p.index.difference(picks).to_numpy()
+    if len(picks) < n and len(rest):
+        picks += list(rng.choice(rest, size=min(n - len(picks), len(rest)), replace=False))
     cols = [c for c in ["userid", "month", "source_release", "tenure", "emp_group", *EMP_STATUS_VARS,
                         "q12new", "q13new_raw", "q22new_raw", "q30new_raw", "q13new", "q22new",
                         "q30new", "analysis"] if c in d]

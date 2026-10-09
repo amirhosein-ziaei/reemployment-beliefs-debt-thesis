@@ -7,7 +7,8 @@ general pessimism? Association only: no causal claims, no realised delinquency.
 
 ## Phase 1 (feasibility)
 
-Start with `outputs/phase1_summary.md`. Other deliverables are in `outputs/`.
+Start with `outputs/phase1_summary.md`. Other deliverables are in `outputs/`. Phase 1 was run on the
+official SCE files retrieved 2026-10-09 (2013-06..2025-10); the association model is gated and has not been run.
 
 ```bash
 pip install -r requirements.txt

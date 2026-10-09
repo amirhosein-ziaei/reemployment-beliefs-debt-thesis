@@ -39,7 +39,7 @@ DOC_URLS = {
 # --- Variables ---------------------------------------------------------------
 KEY_VARS = ["userid", "date"]
 DESIGN_VARS = ["weight", "tenure"]
-# Q10_1..Q10_10: "check all that apply" employment situation (wording to verify).
+# Q10_1..Q10_10: "select all that apply" employment situation, coded 0/1 (questionnaire + raw files).
 EMP_STATUS_VARS = [f"q10_{i}" for i in range(1, 11)]
 EMP_DETAIL_VARS = ["q11", "q12new"]
 CORE_VARS = {
@@ -65,7 +65,7 @@ PROB_MIN, PROB_MAX = 0.0, 100.0
 # because a job-loss probability for the self-employed is a different object.
 EMPLOYED_CODES = ["q10_1", "q10_2"]
 SICK_LEAVE_CODE = "q10_5"   # sensitivity only
-EMPLOYEE_CODE = 1           # Q12new value for "work for someone else" (TO VERIFY)
+EMPLOYEE_CODE = 1           # Q12new 1 = work for someone else, 2 = self-employed (routing-verified)
 
 HEAP_POINTS = [0, 50, 100]
 
