@@ -22,6 +22,19 @@ cd code && python 02_build_panel.py --raw /tmp/sce_fixture/raw --out /tmp/sce_fi
         && python 03_descriptives.py --out /tmp/sce_fixture/out --derived /tmp/sce_fixture/derived --force
 ```
 
+## Phase 2 (initial econometric evidence; exploratory)
+
+Start with `outputs/phase2_summary.md`. The specification (`outputs/model_specification.md`) was
+committed before any model was run. All estimates are **exploratory, pending independent human
+validation** (`outputs/human_validation_guide.md`), and live in `outputs/exploratory/`.
+
+```bash
+python code/04_validation_package.py      # private review package -> data/review/ (gitignored)
+python code/05_phase2_models.py           # Models A-C, inference variants, sensitivity list
+python code/06_prediction.py              # next-month prediction comparison
+python -m unittest discover -s tests -v   # automated tests (synthetic data)
+```
+
 ## Data licence
 
 The SCE microdata are © Federal Reserve Bank of New York and carry the provider's licence and
